@@ -1,0 +1,56 @@
+<div class="col-md-6 offset-md-3" style="background-color: #fff;margin-top: 25px;padding:20px 60px 20px 30px;">
+<h3 id="title" >{{viewTitle}}</h3>
+
+<form action="/event" method="POST" autocomplete="off">
+    <input type="hidden" name="id" value="{{event.e_id}}">
+    {{!-- Name of the event --}}
+    <div class="row">
+    <div class="form-group col-md-5">
+        <label>Name</label>
+        <input type="text" class="form-control" name="name" placeholder="Give me a name" value="{{event.e_name}}">
+    </div>
+    {{!-- Selector for teams --}}
+    <div class="form-group col-md-5"> 
+        <label for="TeamSelector">Team</label>
+        <select name="team" class="form-control" id="TeamSelector">
+            <option selected>{{event.e_team}}</option>
+            <optgroup label="OPS">
+                <option>OPS_DE</option>
+                <option>OPS_BER</option>
+                <option>OPS_US</option>
+            </optgroup>
+            <optgroup label="OTHER">
+                <option>RND</option>
+                <option>Data Services</option>
+                <option>DBA</option>
+            </optgroup>
+        </select>
+    </div>
+    </div>
+    {{!-- Description --}}
+    <div class="row">
+    <div class="form-group col-md-12">
+            <label>Description</label>
+            <textarea type="text" class="form-control" rows="4" name="desc" placeholder="What would u like to change?">{{event.e_desc}}</textarea>
+    </div>
+    </div>
+    {{!-- Date input --}}
+    <div class="row">
+    <div class="form-group col-md-6">
+        <label>Date</label>
+            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                <input type="text" name="date" class="form-control datetimepicker-input" data-target="#datetimepicker1" value="{{event.e_date}}"/>
+                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                     </div>
+            </div>
+    </div>
+
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success"><i class="fa fa-database"></i> Submit</button>
+        <a class="btn btn-secondary" href="/event/list"><i class="fa fa-list-alt"></i> View All</a>
+    </div>
+</form> 
+</div>
+

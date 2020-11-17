@@ -1,0 +1,30 @@
+<div class="col-md-8 offset-md-2" style="background-color: #fff;margin-top: 25px;padding:20px;">
+<h3><a class="btn btn-secondary" href="/event"><i class="fa fa-plus"></i> Create New</a> Event List</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Team</th>
+            <th>Date</th>
+            <th>Created</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each events}}
+        <tr>
+            <td>{{this.e_name}}</td>
+            <td>{{this.e_team}}</td>
+            <td>{{this.e_date}}</td>
+            <td>{{this.e_created}}</td>
+            <td style="overflow:hidden; text-overflow:ellipsis; width:3em">{{this.e_desc}}</td>
+            <td>
+                <a href="/event/{{this.e_id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/event/delete/{{this.e_id}}" onclick="return confirm('Are you sure to delete this event ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table> 
+</div>
